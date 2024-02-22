@@ -1,0 +1,11 @@
+#Python Program
+print("Enter your details : ")
+name =input("Enter your name:")
+print("Your name is" , name)
+print(type(name))
+age = input("Enter your age:")
+print("Your age is" , age)
+print(type(age))
+per = input("Enter your percentage:")
+print("Your percentage is", per)
+print(type(per))
