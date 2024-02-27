@@ -1,6 +1,6 @@
-//Single Link List Functions
-#include<stdio.h>
-#include<stdlib.h>
+//Singly Link List Operations
+#include <stdio.h>
+#include <stdlib.h>
 
 struct node {
     int data;
@@ -10,8 +10,7 @@ struct node {
 struct node *root = NULL;
 
 void append() {
-    struct node *temp;
-    temp = (struct node*)malloc(sizeof(struct node));
+    struct node *temp = (struct node*)malloc(sizeof(struct node));
     printf("Enter the data: ");
     scanf("%d", &temp->data);
     temp->link = NULL;
@@ -46,7 +45,11 @@ int length() {
 }
 
 void add_begin() {
-    struct node temp = (struct node)malloc(sizeof(struct node));
+    struct node *temp = (struct node*)malloc(sizeof(struct node));
+    if (temp == NULL) {
+        printf("Memory allocation failed\n");
+        return;
+    }
     printf("Enter the data: ");
     scanf("%d", &temp->data);
     temp->link = root;
@@ -61,7 +64,11 @@ void add_after() {
         printf("Invalid location\n");
         return;
     }
-    struct node temp = (struct node)malloc(sizeof(struct node));
+    struct node *temp = (struct node*)malloc(sizeof(struct node));
+    if (temp == NULL) {
+        printf("Memory allocation failed\n");
+        return;
+    }
     printf("Enter the data: ");
     scanf("%d", &temp->data);
     struct node *p = root;
