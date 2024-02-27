@@ -1,78 +1,64 @@
-//Doubly Linklist Functions
+//Stack Operations Array
 #include<stdio.h>
-#include<stdlib.h>
+#include<stdlib.h> 
+#define size 5
 
-struct node{
-    int data;
-    struct node *left;
-    struct node *right;
-};
-struct node *root = NULL;
+int stack[size];
+int top=-1;
 
-void append()
+void push()
 {
-    struct node *temp;
-    temp = (struct node*)malloc(sizeof(struct node));
-    scanf("%d" , &temp->data);
-    temp->left = NULL;
-    temp->right = NULL;
-
-    if(root==NULL)
-        root = temp;
+    int item;
+    printf("Enter one element to push: ");
+    scanf("%d", &item); 
+    if(top==size-1)
+    {
+        printf("No more elements can be inserted\n");
+    }
     else
     {
-        struct node *p;
-        p=root;
-        while(p->right!=NULL){
-            p = p->right;
-        }
-        p->right = temp;
-        temp->left = p;
+        top = top+1;
+        stack[top] = item;
     }
 }
 
-void display()
+void pop()
 {
-    struct node *p;
-    p=root;
-    while(p!=NULL){
-        printf("%d->" , p->data);
-        p=p->right;
+    if(top==-1)
+    {
+        printf("No elements since stack is empty\n");
     }
-    printf("\n");
+    else
+    {
+        int item = stack[top];
+        top = top-1;
+        printf("Deleted item = %d\n", item); 
+    }
 }
 
-void length()
+int main()
 {
-    struct node *p;
-    int count = 0;
-    p = root;
-    while(p!=NULL){
-        p = p->right;
-        count+=1;
-    }
-    printf("%d" , count);
-}
-
-int main(){
-    int times;
-    int choice;
-
+    int choice; 
     while(1)
     {
-        printf("Enter 1 for display , 2 for length , 3 for append and 4 for exit: ");
-        scanf("%d" , &choice);
-
-        if(choice ==1)
-            display();
-        else if (choice==2)
-            length();
-        else if(choice==3)
-            append();
-        else if(choice==4)
-        break;
-
+        printf("Enter 1 for push\nEnter 2 for pop\nEnter 3 for exit\n");
+        scanf("%d", &choice); 
+        switch(choice)
+        {
+            case 1:
+                push();
+                break; 
+            
+            case 2:
+                pop();
+                break; 
+            
+            case 3:
+                exit(0); 
+            
+            default:
+                printf("Invalid choice\n");
+        }
     }
-
     return 0;
 }
