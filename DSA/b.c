@@ -35,13 +35,19 @@ void pop()
         printf("Deleted item = %d\n", item); 
     }
 }
-
+void peek(){
+if(top===-1){
+printf("stack is empty"):
+    }
+else{
+printf("%d",stack[top]);
+}
 int main()
 {
     int choice; 
     while(1)
     {
-        printf("Enter 1 for push\nEnter 2 for pop\nEnter 3 for exit\n");
+        printf("Enter 1 for push\nEnter 2 for pop\nEnter 3 for peek\nenter 4 to exit");
         scanf("%d", &choice); 
         switch(choice)
         {
@@ -52,8 +58,11 @@ int main()
             case 2:
                 pop();
                 break; 
-            
             case 3:
+                peek();
+                break;
+            
+            case 4:
                 exit(0); 
             
             default:
