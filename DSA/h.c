@@ -1,0 +1,1 @@
+//Program to count numbers of word , line and character in given text
